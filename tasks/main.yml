@@ -20,7 +20,7 @@
     shell: "{{item.shell | default(omit)}}"
     password: "{{item.password if item.password is defined else '!'}}"
     comment: "{{item.name if item.name is defined else ''}}"
-    uid: "{{item.uid}}"
+    uid: "{{item.uid | default(omit)}}"
     home: "{{ item.home | default(users_homedir + item.username) }}"
     createhome: "{{'yes' if users_create_homedirs else 'no'}}"
   with_items: "{{users}}"
